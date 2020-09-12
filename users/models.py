@@ -1,8 +1,7 @@
-from django.db import models
+from mongoengine import Document, StringField
 
 
 # Create your models here.
-class User(models.Model):
-    _id = models.AutoField(primary_key=True, blank=False, serialize = False, verbose_name ='ID')
-    username = models.CharField(max_length=200, blank=False, default='')
-    password = models.CharField(max_length=200, blank=False, default='')
+class User(Document):
+    username = StringField(max_length=200, blank=False, default='')
+    password = StringField(max_length=200, blank=False, default='')

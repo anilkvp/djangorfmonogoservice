@@ -1,10 +1,10 @@
-from rest_framework import serializers
+from rest_framework_mongoengine.serializers import DocumentSerializer
 from users.models import User
 
 
-class UserSerializer(serializers.ModelSerializer):
+class UserSerializer(DocumentSerializer):
 
     class Meta:
         model = User
-        fields = ('username', 'password')
+        _fields = ('_id', 'username', 'password')
 
